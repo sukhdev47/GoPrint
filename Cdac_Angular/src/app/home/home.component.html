@@ -1,0 +1,199 @@
+
+<div class="c1">
+    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+      <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+        <li data-target="#myCarousel" data-slide-to="2"></li>
+      </ol>
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+  
+          <div class="container">
+            <div class="carousel-caption">
+              <img src="assets/CorousalImages/Pic1.jpg" width="100%" height="100%" style="background:'#777'" class=""
+                alt="...">
+              <Br /><br />
+              <h1 style="color:black">GoPrint</h1>
+              <p style="color:black">We are the award winning printing company providing all online printing services at your door step at cheapest price.                                       </p>
+              <button class="btn btn-lg btn-danger" data-target="#myModal" data-toggle="modal">Sign In</button>
+            </div>  
+          </div>
+        </div>
+        <div class="carousel-item">  
+          <div class="container">
+            <div class="carousel-caption">
+              <img src="assets/CorousalImages/Pic2.png" width="100%" height="100%" style="background:'#777'" class=""
+                alt="...">
+              <Br /><br />
+              <h1 style="color:black">Our Satisfied Customers and Users Reviews.</h1>
+              <p style="color:black">
+              You can check your customer reviews to get the feedback from our regular customer who are availing our services from a 
+              very long time-period</p>
+              <p><a class="btn btn-lg btn-primary" href="http://localhost:4200/Reviews" role="button">Reviews</a></p>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-item">
+  
+          <div class="container">
+            <div class="carousel-caption">
+              <img src="assets/CorousalImages/Pic3.png" width="100%" height="100%" style="background:'#777'" class=""
+                alt="...">
+              <Br /><br />
+              <h1 style="color:black">Browse</h1>
+              <p style="color:black">There present some good stuff that we already prints, check out our some of the already 
+              printed photos/files.</p>
+              <p><a class="btn btn-lg btn-primary" href="http://localhost:4200/Gallary" role="button" >Browse gallery</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </div>
+  
+  
+    <!-- Three columns of text below the carousel -->
+    <div class="row" align="center">
+        <div class="col-lg-4">
+          <img src="assets/Icons/Login.png">
+          <h2>Login</h2>
+          <p>Get started with GoPrint.</p>
+          <button class="btn btn-secondary"  data-target="#myModal" data-toggle="modal">Login &raquo;</button>
+        </div>
+        <div class="col-lg-4">
+          <img src="assets/Icons/FAQ.png">
+          <h2>FAQ</h2>
+          <p>Resolve your Queries</p>
+          <button class="btn btn-secondary"  (click)="Faq()">FAQ &raquo;</button>
+        </div>
+        <div class="col-lg-4">
+          <img src="assets/Icons/ContactUs.jpg">
+          <h2>Contact Us</h2>
+          <p>Contact with the team of GoPrint</p>
+          <button class="btn btn-secondary" (click)="contactUs()" >Contact Us &raquo;</button>
+        </div>
+      </div>
+  
+    <!-- The model which wiil be viewed as a popup on the click of button -->
+    <div class="modal fade c2" id="myModal">
+      <div class="modal-dialog ">
+        <div class="modal-content  ">
+          <div class="modal-header">            
+            <button class="close" data-dismiss="modal">&times;</button><br/>                    
+          </div>     
+                <div class="d-flex justify-content-center">
+                  <div class="brand_logo_container">
+                    <img src="assets/Icons/Login.png" class="brand_logo" alt="Logo">
+                  </div>
+                </div>
+                <div class="d-flex justify-content-center form_container">
+                  <form>
+                    <div class="input-group mb-3">
+                      <div class="input-group-append">
+                        <span class="input-group-text"><i class="fas fa-user"></i></span>
+                      </div>
+                      <input type="text" name="" class="form-control input_user" value="" placeholder="Enter Username" (focusout)="checkusernameFocusOut()" 
+                      (focus)="checkusernameFocus()" [(ngModel)]="username" [ngModelOptions]="{standalone: true}" id="inputusername">
+                    </div>
+                    <div class="input-group mb-2">
+                      <div class="input-group-append">
+                        <span class="input-group-text"><i class="fas fa-key"></i></span>
+                      </div>
+                      <input type="password" name="" class="form-control input_pass" value="" placeholder="Enter Password" [ngModelOptions]="{standalone: true}"
+                      id="inputpassword"  [(ngModel)]="password">
+                    </div>
+                    <div>
+                    <select class="custom-select" [(ngModel)]="selectedUser" [ngModelOptions]="{standalone: true}" required>
+                      <option *ngFor="let user of iam"  [value]="user">{{user}}</option>
+                    </select>
+                    </div>
+                    <div class="form-group">
+                      <div class="custom-control custom-checkbox">
+                        <input type="checkbox" class="custom-control-input" id="customControlInline">
+                        <label class="custom-control-label" for="customControlInline">Remember me</label>
+                      </div>
+                    </div>
+                      <div class="d-flex justify-content-center mt-3 login_container">
+                   <button type="button" name="button" class="btn login_btn" data-dismiss="modal" (click)="checkLogin()">Login</button>
+                   </div>
+                  </form>
+                </div>
+                <br/><h5 class="text-center" style="color: red;">{{result}}</h5>
+                     
+          </div>
+        </div>
+      </div>
+    <!--body-->
+    <div class="container marketing">  
+      <hr class="featurette-divider">
+      <div class="row featurette">
+        <div class="col-md-7">
+          <h2 class="featurette-heading">Print Your Photos the Easy Way: <span class="text-muted">We provides a very easy way to avail our services at your door steps</span>
+          </h2>
+          <p class="lead">The services included here can produce high-quality prints and memorabilia from your digital photos, whether that's in the form of wallet-size snapshots or wall-size photo canvases.
+            Below, we give you some helpful ideas of what factors you should consider when choosing a photo printing service to give your digital keepsakes physical form.</p>
+        </div>
+        <div class="col-md-5">
+        </div>
+      </div>
+      <hr class="featurette-divider">
+      <div class="row featurette">
+        <div class="col-md-7 order-md-2">
+          <h2 class="featurette-heading">First and Foremost: Pricing: <span class="text-muted">We provide cheapest amongs all that are present in present market</span></h2>
+          <p class="lead">It turns out you can get printed photos of your visual memories without breaking the bank.
+            One thing worth keeping in mind is that most of the services included here offer special discount pricing from time to time.             
+          </p>
+        </div>
+        <div class="col-md-5 order-md-1">
+        </div>
+      </div>
+  
+      <hr class="featurette-divider">
+  
+      <div class="row featurette">
+        <div class="col-md-7">
+          <h2 class="featurette-heading">Editing, Ordering, and Sharing Photos: <span class="text-muted">The process of printing also have editing your file to produce best output.</span></h2>
+          <p class="lead">If you're going to be ordering photos online, we have a friendly, navigable website, 
+            we provide a very user interractive interface where you can easily share your photos/document that you want to print, 
+            editing your file will lead to providing best result to you from our side.
+          </p>
+        </div>
+        <div class="col-md-5">
+        </div>
+      </div>
+
+      <hr class="featurette-divider">
+
+      <div class="row featurette">
+        <div class="col-md-7 order-md-2">
+          <h2 class="featurette-heading">Delivering Your Photos: <span class="text-muted">We deliver your printed copies at your doorstep quickly to you.</span></h2>
+          <p class="lead">Delivering your printed copies to you contains a very systemetic procedure, so that you will never face
+            any issues regarding our delivery services.
+            In order to maintain the quality of your package we also follows very protective measures while handling your 
+            package.
+            At the end our delivey boy reaches to you at your delivery location that your specified while ordering.
+          </p>
+        </div>
+        <div class="col-md-5">
+        </div>
+      </div>
+
+      <hr class="featurette-divider">
+
+    </div> 
+</div>
+
+
+
+<!------------------------------------------------------------------------------------------------------------------------------------------>
+	  
+     
+   

@@ -1,0 +1,81 @@
+<main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+  <br/>
+  <br/>
+  <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+    <h1 class="h2">Print on a Go</h1>
+    <div class="btn-toolbar mb-2 mb-md-0">
+      <button type="button" class="btn btn-sm btn-outline-secondary" (click)="Goback()">
+        Go Back
+      </button>
+    </div>
+  </div>
+
+  <div class="card-deck mb-3 text-center">
+    <div class="card mb-4 shadow-sm">
+      <div class="card-header">
+        <h4 class="my-0 font-weight-normal">Our Prices</h4>
+      </div>      
+
+      <div class="card-body">
+          <div>
+            <input type="text" class="form-control" id="zipInput" [(ngModel)]='v1'
+              placeholder="Enter zip or just check all vendor list">
+            <br />
+            <button type="button" class="btn btn-lg btn-outline-primary" (click)='fetchmy()'>
+              Show Vendors
+            </button>
+          </div>
+          <br />
+          <h3 style="color:red">{{message}}</h3>
+  
+          <table class="table" *ngIf="table">
+            <thead>
+              <tr>
+                <th>Vendor ID</th>
+                <th>Shop Name</th>
+                <th>Contact No</th>
+                <th>Address</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+             
+              <tr *ngFor="let arrs of arr">
+                <th scope="row"> {{arrs.vendorId}}</th>
+                <td>{{arrs.shopName}} </td>
+                <td>{{arrs.mobileNo}} </td>
+                <td>{{arrs.area}}<br />
+                  {{arrs.city}}, {{arrs.state}}<br />
+                  {{arrs.country}}
+                  <br />{{arrs.zone}}
+                </td>
+                <td>
+                  <button class="dropdown-item" (click)="selectedVendor(arrs)">Print Here</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <div align="center">
+            <input type="text" class="form-control" placeholder="Enter the Amount" [(ngModel)]="amount">
+          </div>
+          <button type="button" *ngIf="table" class="btn btn-lg btn-block btn-outline-primary" [disabled]="printbtn"
+            (click)="PrintVendor()">Print</button>
+        </div>
+    </div>
+  </div>
+<div *ngIf="upload">
+  <div class="my-4 w-100" id="myChart" width="900" height="480" >
+    <div class="row">
+      <div class="col-md-6" >
+          <form method="post" action="#" id="#">
+            <br/>
+                <div class="form-group files">
+                  <label>Upload Your File </label>
+                  <input type="file" (change)="OnSelectFile($event)" class="form-control">
+                </div>
+            </form>
+      </div>
+    </div>
+  </div> 
+</div> 
+</main>

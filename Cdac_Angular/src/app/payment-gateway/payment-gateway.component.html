@@ -1,0 +1,98 @@
+ <!-- PAYMENT GATEWAY -->
+
+ <div class="c1">
+    <div class="container c1" *ngIf="showPaymentGateway">
+      <div class="row">
+        <aside class="col-sm-6">
+          <p style="font-size: 20px;text-align: center;">Payment Gateway</p>
+          <article class="card">
+            <div class="card-body p-5">
+              <ul class="nav bg-light nav-pills rounded nav-fill mb-3" role="tablist">
+                <li class="nav-item">
+                  <a class="nav-link active" data-toggle="pill" href="#nav-tab-card">
+                    <i class="fa fa-credit-card"></i>Credit Card</a>
+                </li>
+              </ul>
+              <p class="alert alert-success">Status:{{status}}</p>
+              <form role="form">
+                <div class="form-group">
+                  <label for="username">Full name (on the card)</label>
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"><i class="fa fa-user"></i></span>
+                    </div>
+                    <input type="text" (focusout)="checkusernameFocusOut()" (focus)="checkusernameFocus()" id="username"
+                      [(ngModel)]="username" [ngModelOptions]="{standalone: true}" placeholder="Name On Card" required="">
+                    <small id="usernameHelp" *ngIf="usernameChkBool" class="text-muted"> {{usernameInfo}}</small>
+                  </div> <!-- input-group.// -->
+                </div> <!-- form-group.// -->
+  
+                <div class="form-group">
+                  <label for="cardNumber">Card number</label>
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"><i class="fa fa-credit-card"></i></span>
+                    </div>
+                    <input type="text" (focusout)="checkCardNumberFocusOut()" (focus)="checkCardNumberFocus()"
+                      id="cardNumber" [(ngModel)]="cardNumber" placeholder="Card Number"
+                      [ngModelOptions]="{standalone: true}">
+                    <small id="cardNumberHelp" *ngIf="cardNumberChkBool" class="text-muted"> {{cardNumberInfo}}</small>
+                  </div> <!-- input-group.// -->
+                </div> <!-- form-group.// -->
+                <div class="row">
+                  <div class="col-sm-8">
+                    <div class="form-group">
+                      <label><span class="hidden-xs">Expiration</span> </label>
+                      <div class="form-inline">
+                        <select class="custom-select" style="width:45%" [(ngModel)]="month" required="string"
+                          [ngModelOptions]="{standalone: true}">
+                          <option>MM</option>
+                          <option value="January">01 - January</option>
+                          <option value="February">02 - February</option>
+                          <option value="March">03 - March</option>
+                          <option value="April">04 - April</option>
+                          <option value="May">05 - May</option>
+                          <option value="June">06 - June</option>
+                          <option value="July">07 - July</option>
+                          <option value="August">08 - August</option>
+                          <option value="September">09 - September</option>
+                          <option value="October">10 - October</option>
+                          <option value="November">11 - November</option>
+                          <option value="December">12 - December</option>
+                        </select>
+                        <span style="width:10%; text-align: center"> / </span>
+                        <select class="custom-select" style="width:45%" [(ngModel)]="year" required="number"
+                          [ngModelOptions]="{standalone: true}">
+                          <option>YY</option>
+                          <option value="2027">2027</option>
+                          <option value="2026">2026</option>
+                          <option value="2025">2025</option>
+                          <option value="2024">2024</option>
+                          <option value="2023">2023</option>
+                          <option value="2022">2022</option>
+                          <option value="2021">2021</option>
+                          <option value="2020">2020</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                  <br/>
+                  <div class="col-sm-4">
+                      <div class="form-group">
+                          <label data-toggle="tooltip" title="" data-original-title="3 digits code on back side of the card">CVV <i class="fa fa-question-circle"></i></label>
+                          <input type="number" class="form-control" required="" placeholder="3 digit CVV">
+                      </div> <!-- form-group.// -->
+                  </div>
+                </div> <!-- row.// -->
+                <button class="subscribe btn btn-primary btn-block" type="submit" (click)="checkcarddetails()"> Confirm
+                </button>
+              </form>
+            </div> <!-- card-body.//-->
+          </article> <!-- card.//-->
+        </aside> <!-- col.//-->
+      </div> <!-- row.//-->
+    </div>
+    <!--container end.//-->
+  <div>
+    <br/><br/>
+  </div>

@@ -1,0 +1,60 @@
+<div class="c1">
+    <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+        <div  class="btn-group c3"  style="position: absolute;" >  
+            <button class="btn btn-danger btn-lg text-right" id="dropdownMenuButton" data-toggle="dropdown" aria-label="First group" aria-haspopup="true" aria-expanded="false">
+              {{UserName}}
+            </button>
+            <div id="dropdownMenuButtonDetails" class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <h6 class="dropdown-header">Account Details</h6>
+              <a class="dropdown-item" (click)="UpdateProfileNav()" >Update Profile</a>
+              <a class="dropdown-item" (click)="OrderNav()" >Orders</a>
+              <a class="dropdown-item" (click)="logout()" href="../" >Sign Out</a>
+            </div>           
+        </div>  
+    </div> 
+     <div class="container-fluid c2 ">
+      <div class="row">
+        <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+          <div class="sidebar-sticky">
+            <ul class="nav flex-column">
+                <li class="c1">                
+                   <div align="center">
+                      <img class="img-responsive" src="assets/Icons/profile.png" style="width:71px;border-radius:43px;">
+                      </div>
+                      <br/>
+                      <h4 class="text-center">Welcome User</h4>
+                      <h3 class="text-center"><u>{{UserName}}</u></h3>
+               
+                       <hr class="new1">
+                  </li>
+                  
+              <li class="nav-item" id="home">
+                <a (click)="dashBoardRoute($event)" class="nav-link active "  >Home</a>            
+              </li>
+              <li class="nav-item" id="orders">
+                <a class="nav-link" (click)="dashBoardRoute($event)">Orders</a>
+              </li>
+              <li class="nav-item" id="pricing">
+                  <a class="nav-link" (click)="dashBoardRoute($event)">Pricing</a>
+                </li>
+              <li class="nav-item">
+                  <a class="nav-link" (click)="dashBoardRoute($event)"> Wallet </a>
+                </li>
+              <li class="nav-item">
+                <a class="nav-link" (click)="dashBoardRoute($event)"> Profile </a>
+                <hr class="new1">
+              </li>                  
+              <li class="nav-item">
+                <a class="nav-link" (click)="dashBoardRoute($event)">Rate your Experience</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" (click)="dashBoardRoute($event)">Logout</a>
+                </li>
+            </ul>
+          </div>
+        </nav>  
+    
+    <div  style="width:80%"> 
+      <router-outlet></router-outlet>
+    </div>
+    </div>

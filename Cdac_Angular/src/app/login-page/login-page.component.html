@@ -1,0 +1,31 @@
+<fieldset class="scheduler-border">
+  <form align="center" class="form-signin">
+    <img class="mb-4" src="/assets/LoginLogo.png" alt="" width="72" height="72">
+    <h1 class=" mb-3 font-weight-normal">Please sign in</h1>
+    <br />
+    <label for="inputEmail" class="sr-only">Email address</label>
+    <input type="email" (focusout)="checkEmailFocusOut()" (focus)="checkEmailFocus()" [(ngModel)]="email"
+      id="inputEmail" class="form-control" placeholder="Email address" required autofocus
+      [ngModelOptions]="{standalone: true}">
+    <small id="emailHelp" *ngIf="emailChkBool" class="text-muted"> {{emailInfo}}</small>
+    <label for="inputPassword" class="sr-only">Password</label>
+    <input type="password" id="inputPassword" [(ngModel)]="password" aria-label="First name"
+      [ngModelOptions]="{standalone: true}" class="form-control" placeholder="Password" required>
+    <label>
+      <a href="#">
+        <h5 class="forgetPassword">Forgot Password</h5>
+      </a>
+    </label>
+    <br />
+    <br />
+    <select class="custom-select"  [(ngModel)]="iam" required="string" [ngModelOptions]="{standalone: true}">
+      <option value="User">User</option>
+      <option value="Vendor">Vendor</option>
+      <option value="Admin">Admin</option>
+    </select>
+    <br />
+    <br />
+    <button class="btn btn-lg btn-primary btn-block" type="submit" (click)="checkLogin()">Sign in</button>
+    <p class="mt-5 mb-3 text-muted"></p>
+  </form>
+</fieldset>

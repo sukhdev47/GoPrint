@@ -1,0 +1,43 @@
+<div class="c1">
+  <br/>
+  <br/>
+<div class=" text-center "> 
+  <h2>Orders Summary</h2>
+  </div>
+  <br/>
+  <br/>
+<div class=" text-center">       
+<table class="table  table-bordered table-hover"  >
+  <thead class="thead-dark">
+    <tr>
+      <th>#</th>
+      <th>OrderId</th>
+      <th>Date</th>
+      <th>Vendor name</th>
+      <th>Status</th>
+      <th>Amount</th>
+      <th>Pdf Link</th>     
+    </tr>
+  </thead>
+  
+  <tbody class="thead-light"> 
+    
+    <tr *ngFor="let arrs of Orders; let i = index">
+        <td>{{i+1}}</td>
+        <td>{{arrs.orderId}}</td>
+        <td>{{arrs.ordeDate}}</td>
+        <td>{{arrs.vendorId}}</td>     
+        <td>{{arrs.status}}</td>
+        <td>{{arrs.amount}}</td>
+        <!-- <td>{{arrs.fileId}}</td> -->
+        <td><a href='{{arrs.fileId}}'>Link</a></td>
+    </tr> 
+  </tbody>
+ 
+</table>
+
+<h4 style="color:red">{{message}}</h4>
+</div>
+</div>
+
+

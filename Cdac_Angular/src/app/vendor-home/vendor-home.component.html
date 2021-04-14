@@ -1,0 +1,175 @@
+<main role="main" class="col-md-7 ml-sm-auto col-lg-10 px-">
+  <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-5 pb-2 mb-3 border-bottom">
+    <h1 class="h2"><b>Dashboard </b></h1>
+  </div>  
+  <canvas class=" w-50" id="myChart" width="900" height="1"></canvas>
+
+  <div class="pricing-header px-1 py-1 pt-md-1 pb-md-2 mx-auto text-center" *ngIf="show2">
+    <h1 class="display-20" style="padding-top:0 ;"><b>Your Account Summary</b></h1>
+  </div>
+
+  <div class="container">
+    <div *ngIf="show">
+      <div class="card-deck mb-3 text-center">
+        <div class="card mb-4 shadow-sm backgroundcolor ordertable">
+          <div class="card-header card-header text-white bg-primary mb-2 ">
+            <h4 class="my-0 font-weight-normal">Orders</h4>
+          </div>
+          <div class="card-body">
+            <table class="table table-bordered">
+              <thead>
+                <tr>
+                  <th>Order Id</th>
+                  <th>Customer Id</th>
+                  <th>Status</th>
+                  <th>Amount</th>
+                  <th>Link</th>
+                </tr>
+              </thead>
+
+              <tbody>
+                  <tr *ngFor="let arrs of VendorHomeData; let i = index">
+                    <td>{{arrs.orderId}} </td>
+                    <td>{{arrs.customerId}}</td>
+                    <td>{{arrs.status}}  <Button class="btn btn-danger btn-sm" (click)="completed(arrs)">Mark as Completed</Button></td>
+                    <td>{{arrs.amount}}</td>
+                   <td> <a href='{{arrs.fileId}}' (onclick)='pdfDown()' >Pdf</a></td>
+                  </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="card mb-4 shadow-sm backgroundcolor">
+          <div class="card-header text-white bg-primary mb-1">
+            <h4 class="my-0 font-weight-normal">Wallet</h4>
+          </div>
+          <div class="card-body">
+            <br />
+            <h1 class="card-title pricing-card-title">Total Earnings </h1>
+            <br />
+            <h1 class="card-title pricing-card-title c3">&#8377; {{bal}}</h1>
+          </div>
+          <button type="button" class="btn btn-lg btn-block btn-outline-primary"
+            (click)="GetBalanceHistory()">Passbook</button>
+        </div>
+      </div>
+    </div>
+
+    
+
+    <div *ngIf="show1">
+      <div class="pricing-header mx-auto text-center">
+        <h1 class="display-20" style="padding-top:0 ;"><b>Wallet History</b></h1>
+        <!-- <h6><a href="current"> GoBack </a></h6> -->
+        <!-- <p class="lead">Sample text</p> -->
+      </div>
+      <table class="table table-bordered table-hover c1">
+
+        <thead>
+          <tr>
+            <th bgcolor="#add8e6">S.No</th>
+            <th bgcolor="#add8e6">Order Id</th>
+            <th bgcolor="#add8e6">Customer Name</th>
+            <th bgcolor="#add8e6">Date</th>
+            <th bgcolor="#add8e6">Time</th>
+            <th bgcolor="#add8e6">Amount</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <td><b>1</b></td>
+            <td><b>#P101</b></td>
+            <td><b>Parth</b></td>
+            <td><b>22-12-2019</b></td>
+            <td><b>16:31</b></td>
+            <td bgcolor="Yellow"> <b>100</b> </td>
+          </tr>
+          <tr>
+            <td><b>2</b></td>
+            <td><b>#P102</b></td>
+            <td><b>Shefali</b></td>
+            <td><b>22-12-2019</b></td>
+            <td><b>17:41</b></td>
+            <td bgcolor="Yellow"> <b>90</b> </td>
+
+          </tr>
+          <tr>
+            <td><b>3</b></td>
+            <td><b>#P103</b></td>
+            <td><b>Goldy</b></td>
+            <td><b>23-12-2019</b></td>
+            <td><b>18:31</b></td>
+            <td bgcolor="Yellow"> <b>200</b> </td>
+          </tr>
+          <tr>
+            <td><b>4</b></td>
+            <td><b>#P104</b></td>
+            <td><b>Kaushal</b></td>
+            <td><b>24-12-2019</b></td>
+            <td><b>12:00</b></td>
+            <td bgcolor="Yellow"> <b>50</b> </td>
+          </tr>
+          <tr>
+            <td><b>5</b></td>
+            <td><b>#P105</b></td>
+            <td><b>Prashant</b></td>
+            <td><b>26-12-2019</b></td>
+            <td><b>21:15</b></td>
+            <td bgcolor="Yellow"> <b>500</b> </td>
+
+          </tr>
+          <tr>
+            <td><b>6</b></td>
+            <td><b>#P106</b></td>
+            <td><b>Akash</b></td>
+            <td><b>31-12-2019</b></td>
+            <td><b>09:50</b></td>
+            <td bgcolor="Yellow"> <b>260</b> </td>
+          </tr>
+          <tr>
+            <td><b>7</b></td>
+            <td><b>#P107</b></td>
+            <td><b>Amit</b></td>
+            <td><b>01-01-2020</b></td>
+            <td><b>17:31</b></td>
+            <td bgcolor="Yellow"> <b>300</b> </td>
+          </tr>
+          <tr>
+            <td><b>8</b></td>
+            <td><b>#P108</b></td>
+            <td><b>Parth</b></td>
+            <td><b>01-01-2020</b></td>
+            <td><b>18:00</b></td>
+            <td bgcolor="Yellow"> <b>480</b> </td>
+          </tr>
+          <tr>
+            <td><b>9</b></td>
+            <td><b>#P109</b></td>
+            <td><b>Surbhi</b></td>
+            <td><b>02-01-2020</b></td>
+            <td><b>11:25</b></td>
+            <td bgcolor="Yellow"> <b>120</b> </td>
+          </tr>
+          <tr>
+            <td><b>10</b></td>
+            <td><b>#P110</b></td>
+            <td><b>Pooja</b></td>
+            <td><b>02-01-2020</b></td>
+            <td><b>17:25</b></td>
+            <td bgcolor="Yellow"> <b>80</b> </td>
+          </tr>
+          <tr>
+            <td><b>11</b></td>
+            <td><b>#P102</b></td>
+            <td><b>Akansha</b></td>
+            <td><b>03-01-2020</b></td>
+            <td><b>14:25</b></td>
+            <td bgcolor="Yellow"> <b>120</b> </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    </div>
+    </main>

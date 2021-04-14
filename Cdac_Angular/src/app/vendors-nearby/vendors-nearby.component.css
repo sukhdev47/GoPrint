@@ -1,0 +1,30 @@
+.search
+{
+    width:"80%"
+    
+}
+
+button {
+    width: 10%;
+    background-color: rgb(233, 43, 10);
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+input[type=text], select {
+    width: 20%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    -webkit-box-shadow: -3px 2px 77px -6px rgba(250,32,32,1);
+    -moz-box-shadow: -3px 2px 77px -6px rgba(250,32,32,1);
+    box-shadow: -3px 2px 77px -6px rgba(250,32,32,1);
+
+  }

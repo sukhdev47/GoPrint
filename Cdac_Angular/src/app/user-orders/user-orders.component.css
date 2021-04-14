@@ -1,0 +1,19 @@
+.tl
+{
+    border: 1px solid grey;
+    border-collapse: collapse;
+    padding: 5px;
+    background-color: #f1f1f1;
+}
+.header
+{
+    background-color: black;
+    color: white;
+    padding : 10px;
+}
+.c1
+{
+    margin-left: 80px;
+}
+
+

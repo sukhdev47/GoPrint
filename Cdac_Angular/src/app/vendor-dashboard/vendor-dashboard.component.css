@@ -1,0 +1,23 @@
+.loginName
+{
+    color:blue;
+}
+.nav-item a{
+    color: black;
+}
+.nav-item a:hover{
+    background-color: black;
+    color:white;
+}
+
+.c1{
+    margin-top:60px;
+}
+
+.c2{
+    margin-left: -20px;
+}
+
+.c3{
+    margin-left:1500px;
+}
